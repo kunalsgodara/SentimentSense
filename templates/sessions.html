@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Sessions</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center mt-5">Sessions</h1>
+      <a href="/" class="btn btn-secondary mb-3">Back to Analyzer</a>
+      {% if conversations %}
+      <h2 class="mt-5">Conversations</h2>
+      <table class="table table-striped mt-3">
+        <thead>
+          <tr>
+            <th>Conversation No</th>
+            <th>Topic</th>
+            <th>Sentiment</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for conv in conversations %}
+          <tr>
+            <td>{{ conv['Conversation No'] }}</td>
+            <td>{{ conv['Topic'] }}</td>
+            <td>{{ conv['Sentiment'] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

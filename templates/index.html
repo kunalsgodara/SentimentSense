@@ -1,0 +1,66 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Conversation Analyzer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center mt-5">Conversation Analyzer</h1>
+      <form action="/upload" method="post" enctype="multipart/form-data" class="mt-4">
+        <div class="form-group">
+          <label for="file">Upload a JSON or JSONL file:</label>
+          <input type="file" name="file" id="file" accept=".json,.jsonl" class="form-control-file" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Analyze</button>
+        <a href="/sessions" class="btn btn-secondary">Sessions</a>
+      </form>
+
+      {% if topic_counts %}
+      <h2 class="mt-5">Topic Counts</h2>
+      <table class="table table-striped mt-3">
+        <thead>
+          <tr>
+            <th>Topic</th>
+            <th>Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in topic_counts %}
+          <tr>
+            <td>{{ item.Topic }}</td>
+            <td>{{ item.Count }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+
+      {% if sentiment_counts %}
+      <h2 class="mt-5">Sentiment Counts</h2>
+      <table class="table table-striped mt-3">
+        <thead>
+          <tr>
+            <th>Sentiment</th>
+            <th>Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in sentiment_counts %}
+          <tr>
+            <td>{{ item.Sentiment }}</td>
+            <td>{{ item.Count }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
