@@ -9,7 +9,8 @@ Topic Clustering: Clusters conversations into topics using KMeans clustering.
 Sentiment Analysis: Analyzes sentiment of each conversation (positive, negative, neutral).
 Detailed Reports: Displays topic counts, sentiment counts, and individual conversation details.
 Session Management: Stores and displays uploaded conversation sessions.
-Technologies Used
+
+### Technologies Used
 Backend: Python, Flask
 Frontend: HTML, CSS, Bootstrap
 Data Analysis: Pandas, Scikit-learn, TextBlob
