@@ -15,4 +15,4 @@ Backend: Python, Flask
 Frontend: HTML, CSS, Bootstrap
 Data Analysis: Pandas, Scikit-learn, TextBlob
 
-## To Test launch the app use: https://sentimentsense.onrender.com
+## To Test launch the app use: https://sentimentsense.onrender.com/
